@@ -7,11 +7,15 @@ import numpy as np
 
 
 def getSerialData(self, Samples, serialConnection, lines, lineValueText, lineLabel):
-    value = float(serialConnection.readline().strip())  # Lee sensor
-    data.append(value)  # Guarda la última posición.
-    lines.set_data(range(Samples), data)  # Dibuja la linea
+    valueP1 = float(serialConnection.readline().strip())  # Lee sensor
+    valueP2 = float(serialConnection.readline().strip())  # Lee sensor
+    data0.append(valueP1)  # Guarda la última posición.
+    data1.append(valueP2)
+    lines.set_data(range(Samples), data0)  # Dibuja la linea
+    lines.set_data(range(Samples), data1)  # Dibuja la linea
     # Muestr valores del sensor del line
-    lineValueText.set_text(lineLabel + ' = ' + str(round(value, 2)))
+    lineValueText.set_text(lineLabel + ' = ' + str(round(valueP1, 2)))
+    lineValueText.set_text(lineLabel + ' = ' + str(round(valueP2, 2)))
 
 
 # Inicialización del puerto de ejecución
@@ -25,7 +29,8 @@ except:
     print("Error de conexion")
 
 Samples = 100
-data = collections.deque([0] * Samples, maxlen=Samples)  # Vector de muestras
+data0 = collections.deque([0] * Samples, maxlen=Samples)  # Vector de muestras
+data1 = collections.deque([0] * Samples, maxlen=Samples)  # Vector de muestras
 sampleTime = 100  # Tiempo de muestreo
 
 # Limites de los ejes

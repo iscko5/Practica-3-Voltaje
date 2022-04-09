@@ -1,5 +1,5 @@
 const int analogInPin0 = A0;
-// const int analogInPin1 = A1; para el segundo potenciometro
+const int analogInPin1 = A1; 
 int sensorValue = 0;
 float voltageValue = 0;
 unsigned long lastTime = 0, sampleTime = 100;
@@ -14,10 +14,12 @@ void loop() {
   if(millis()-lastTime>sampleTime)
   {
     lastTime = millis();
-    sensorValue = analogRead(analogInPin0);
-    // sensorValue = analogRead(analogInPin1); segundo potenciometro
-    voltageValue = scaling(sensorValue, 0, 1023, 0, 5);
-    Serial.println(voltageValue);
+    sensorValue0 = analogRead(analogInPin0);
+    sensorValue1 = analogRead(analogInPin1); 
+    voltageValue0 = scaling(sensorValue, 0, 1023, 0, 5);
+    voltageValue1 = scaling(sensorValue, 0, 1023, 0, 5);
+    Serial.println(voltageValue0);
+    Serial.println(voltageValue1);
   }
 }
 
