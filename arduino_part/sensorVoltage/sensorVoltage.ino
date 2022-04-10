@@ -1,7 +1,9 @@
 const int analogInPin0 = A0;
 const int analogInPin1 = A1; 
-int sensorValue = 0;
-float voltageValue = 0;
+int sensorValue0 = 0;
+int sensorValue1 = 0;
+float voltageValue0 = 0;
+float voltageValue1 = 0;
 unsigned long lastTime = 0, sampleTime = 100;
 
 void setup() {
@@ -16,8 +18,8 @@ void loop() {
     lastTime = millis();
     sensorValue0 = analogRead(analogInPin0);
     sensorValue1 = analogRead(analogInPin1); 
-    voltageValue0 = scaling(sensorValue, 0, 1023, 0, 5);
-    voltageValue1 = scaling(sensorValue, 0, 1023, 0, 5);
+    voltageValue0 = scaling(sensorValue0, 0, 1023, 0, 5);
+    voltageValue1 = scaling(sensorValue1, 0, 1023, 0, 5);
     Serial.println(voltageValue0);
     Serial.println(voltageValue1);
   }
