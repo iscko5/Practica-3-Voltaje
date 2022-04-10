@@ -6,13 +6,13 @@ import matplotlib.animation as animation
 import numpy as np
 
 
-def getSerialData(self, Samples, serialConnection, lines, lineValueText, lineLabel):
+def getSerialData(self, Samples, serialConnection, lines1, lines2, lineValueText, lineLabel):
     valueP1 = float(serialConnection.readline().strip())  # Lee sensor
     valueP2 = float(serialConnection.readline().strip())  # Lee sensor
     data0.append(valueP1)  # Guarda la última posición.
     data1.append(valueP2)
-    lines.set_data(range(Samples), data0)  # Dibuja la linea
-    lines.set_data(range(Samples), data1)  # Dibuja la linea
+    lines1.set_data(range(Samples), data0)  # Dibuja la linea
+    lines2.set_data(range(Samples), data1)  # Dibuja la linea
     # Muestr valores del sensor del line
     lineValueText.set_text(lineLabel + ' = ' + str(round(valueP1, 2)))
     lineValueText.set_text(lineLabel + ' = ' + str(round(valueP2, 2)))
@@ -46,11 +46,12 @@ ax.set_xlabel("Muestra")
 ax.set_ylabel("Voltaje")
 
 lineLabel = 'Voltaje'
-lines = ax.plot([], [], label=lineLabel)[0]  # Grafica datos iniciales
+lines1 = ax.plot([], [], label=lineLabel)[0]  # Grafica datos iniciales
+lines2 = ax.plot([], [], label=lineLabel)[0]  # Grafica datos iniciales
 lineValueText = ax.text(0.85, 0.95, '', transform=ax.transAxes)
 
 anim = animation.FuncAnimation(fig, getSerialData, fargs=(
-    Samples, serialConnection, lines, lineValueText, lineValueText, lineLabel), interval=sampleTime)
+    Samples, serialConnection, lines1, lines2, lineValueText, lineLabel), interval=sampleTime)
 
 plt.show()
 serialConnection.close()

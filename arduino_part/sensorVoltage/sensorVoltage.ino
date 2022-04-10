@@ -13,7 +13,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if(millis()-lastTime>sampleTime)
+  if(millis()-lastTime > sampleTime)
   {
     lastTime = millis();
     sensorValue0 = analogRead(analogInPin0);
