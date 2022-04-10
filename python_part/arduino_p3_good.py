@@ -19,7 +19,7 @@ def getSerialData(self, Samples, serialConnection, lines1, lines2, lineValueText
 
 
 # Inicialización del puerto de ejecución
-serialPort = '/dev/ttyACM0 (Arduino Mega or Mega 2560)'
+serialPort = '/dev/ttyACM0'
 baudRate = 9600
 
 try:
