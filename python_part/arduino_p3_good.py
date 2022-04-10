@@ -15,7 +15,7 @@ def getSerialData(self, Samples, serialConnection, lines, lineValueText, lineLab
 
 
 # Inicialización del puerto de ejecución
-serialPort = 'COM1'
+serialPort = 'COM3'
 baudRate = 9600
 
 try:

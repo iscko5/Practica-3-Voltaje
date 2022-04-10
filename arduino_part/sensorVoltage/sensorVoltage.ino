@@ -1,5 +1,5 @@
 const int analogInPin0 = A0;
-// const int analogInPin1 = A1; para el segundo potenciometro
+const int analogInPin1 = A1; 
 int sensorValue = 0;
 float voltageValue = 0;
 unsigned long lastTime = 0, sampleTime = 100;
