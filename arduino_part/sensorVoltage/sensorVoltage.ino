@@ -1,14 +1,9 @@
 const int analogInPin0 = A0;
 const int analogInPin1 = A1; 
-<<<<<<< HEAD
-int sensorValue = 0;
-float voltageValue = 0;
-=======
 int sensorValue0 = 0;
 int sensorValue1 = 0;
 float voltageValue0 = 0;
 float voltageValue1 = 0;
->>>>>>> doubleP1
 unsigned long lastTime = 0, sampleTime = 100;
 
 void setup() {
