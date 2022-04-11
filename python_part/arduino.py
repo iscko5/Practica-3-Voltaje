@@ -1,4 +1,6 @@
-import sys, serial, argparse
+import sys
+import serial
+import argparse
 import numpy as np
 from time import sleep
 from collections import deque
@@ -36,7 +38,7 @@ class AnalogPlot:
     def update(self, frameNum, a0):
         try:
             line = self.ser.readline()
-            print (line)
+            print(line)
             data = [float(val) for val in line.split()]
             # print data
             if (len(data) == 2):
@@ -59,8 +61,7 @@ class AnalogPlot:
 
 def main():
 
-    strPort = 'COM7'
-
+    strPort = '/dev/ttyACM0'
 
     # plot parameters
     analogPlot = AnalogPlot(strPort, 100)
